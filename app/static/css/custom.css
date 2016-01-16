@@ -1,0 +1,18 @@
+body {
+	margin: 20px;
+}
+
+.fab-button {
+	position: fixed !important;
+    bottom: 20 !important;
+    right: 50 !important;
+    z-index: 5;
+}
+
+main {
+	margin: 50px;
+}
+
+.mdl-textfield {
+	width: 50% !important;
+}

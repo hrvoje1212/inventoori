@@ -1,0 +1,56 @@
+<html>
+<head>
+	{% if title %}
+	<title>{{ title }} - Inventoori</title>
+	{% else %}
+	<title>Welcome to Inventoori</title>
+	{% endif %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='semantic/app/static/dist/semantic.min.css') }}">
+	<script src="{{ url_for('static', filename='semantic/app/static/dist/semantic.min.js') }}"></script>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>	<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+
+<body>
+
+	<div class="mdl-layout mdl-js-layout">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<!-- Title -->
+				<span class="mdl-layout-title">{{ title }} - Inventoori</span>
+				<!-- Add spacer, to align navigation to the right -->
+				<div class="mdl-layout-spacer"></div>
+				<!-- Navigation -->
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="{{ url_for('index') }}">Home</a>
+					<a class="mdl-navigation__link" href="{{ url_for('users_list') }}">Users</a>
+				</nav>
+			</div>
+		</header>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Inventoori</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="{{ url_for('index') }}">Home</a><a class="mdl-navigation__link" href="{{ url_for('users_list') }}">Users</a>
+			</nav>
+		</div>
+		<main class="ui container">
+			{% with messages = get_flashed_messages() %}
+		      {% if messages %}
+			<ul>
+				{% for message in messages %}
+				<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		    {% endwith %}
+		    {% block content %}{% endblock %}
+		</main>
+	</div>
+</body>
+</html>

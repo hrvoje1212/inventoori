@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="ui center aligned container">
+		<span class="display-4 center">Welcome to your inventoori!</span class
+		="display-3 center">
+	</div>
+	<div class="ui center aligned container">
+
+		<!-- Simple Textfield -->
+		<form action="#">
+		  <div class="mdl-textfield mdl-js-textfield">
+		    <input class="mdl-textfield__input" type="text" id="search">
+		    <label class="mdl-textfield__label" for="search">Search</label>
+		  </div>
+		</form>
+
+		<!-- Colored FAB button -->
+		<button class="fab-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onClick="location.href='{{ url_for('create_item') }}'">
+		  <i class="material-icons">add</i>
+		</button>
+	</div>
+
+	<div id="items-list">
+	</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>{{ action }} {{ data_type }}</h3>
+  <form action="" method="post" name="create-user">
+      {{ form.hidden_tag() }}
+      <div class="row">
+        <div class="six columns">
+          <label>username</label>
+          {{ form.username(size=80) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <label>email</label>
+          {{ form.email(size=80) }}
+        </div>
+      </div>
+      <input class="button-primary" type="submit" value="Save">
+  </form>
+{% endblock %}

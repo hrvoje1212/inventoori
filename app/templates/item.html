@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="ui center aligned container">
+  <h3>{{ action }} {{ data_type }}</h3>
+  <form class="" action="{{ form_action }}" method="post" name="create-user">
+    {{ form.hidden_tag() }}
+
+    <!-- Textfield with Floating Label -->
+    <div class="row mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{ form.name(class_='mdl-textfield__input') }}
+      <label class="mdl-textfield__label">Item Name</label>
+    </div>
+    <div class="row mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{ form.location(class_='mdl-textfield__input') }}
+      <label class="mdl-textfield__label">Location</label>
+    </div>
+    <div class="row mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{ form.serial_number(class_='mdl-textfield__input') }}
+      <label class="mdl-textfield__label">Serial Number</label>
+    </div>
+
+    <div class="row mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <label class="mdl-textfield__label">Item Description</label>
+      {{ form.description(cols='80', rows='5', class_='mdl-textfield__input') }}
+    </div>
+
+    <div class="field">
+      <span style="margin-right: 20px">Current Holder</span>
+      {{ form.holder(class_='') }}
+    </div>
+
+    <input style="margin-top: 20px" class="mdl-button mdl-js-button mdl-js-ripple-effect" type="submit" value="Save">
+    <a style="margin-top: 20px" class="mdl-button mdl-js-button mdl-button--accent" href="{{ url_for('remove_item', id=data_type) }}">
+      Delete
+    </a>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<style>
+	.user-card.mdl-card {
+		width: 100%;
+		height: 260px;
+		padding: 0 !important;
+		margin: 10px;
+	}
+	.user-card > .mdl-card__title {
+		color: #fff;
+		background-color: #46B6AC;
+	}
+	</style>
+
+<div class="ui container">
+	<div class="ui four column doubling grid">
+		{% for user in users %}
+		<div class="column">
+			<div class="user-card mdl-card mdl-shadow--2dp">
+				<div class="mdl-card__title mdl-card--expand">
+					<img class="ui avatar image mdl-card__title-text" src="{{ user.avatar(128) }}" alt="avatar">
+					<span class="mdl-card__title-text">{{ user.username }}</span>
+				</div>
+				<div class="mdl-card__supporting-text">
+					{{ user.email }}
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ url_for('user', username=user.username) }}">
+					Details
+				</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+		<!-- Colored FAB button -->
+		<button class="fab-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onClick="location.href='{{ url_for('create_user') }}'">
+		  <i class="material-icons">add</i>
+		</button>
+	</div>
+</div>
+
+{% endblock %}
