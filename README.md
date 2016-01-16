@@ -1,0 +1,2 @@
+# inventoori
+Inventory managment app
